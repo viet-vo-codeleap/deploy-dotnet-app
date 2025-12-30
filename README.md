@@ -54,7 +54,7 @@ docker stop dotnet-app && docker rm dotnet-app
 ├── Properties/             # Launch settings
 ├── Dockerfile             # Multi-stage Docker build
 ├── .dockerignore          # Docker build exclusions
-└── appsettings.json       # Application configuration
+└── appsettings.json       # Application configurations
 ```
 
 ## Docker Best Practices Applied
