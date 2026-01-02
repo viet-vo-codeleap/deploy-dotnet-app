@@ -43,7 +43,7 @@ jobs:
 
         steps:
             - name: Deploy to Azure VM
-              uses: applyboy/ssh-action@v1.0.3
+              uses: appleboy/ssh-action@v1.0.3
               env:
                 ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
                 ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
@@ -54,10 +54,10 @@ jobs:
                 host: ${{ secrets.VM_HOST }}
                 username: ${{ secrets.VM_USERNAME }}
                 password: ${{ secrets.VM_PASSWORD }}
-                envs: ACR_LOGIN_SERVER, ACR_USERNAME, ACR_PASSWORD, IMAGE_NAME, IMAGE_TAG
+                envs: ACR_LOGIN_SERVER,ACR_USERNAME,ACR_PASSWORD,IMAGE_NAME,IMAGE_TAG
                 script: |
                     # Login to ACR
-                    echo "$ACR_PASSWORD" | docker login -u "$ACR_LOGIN_SERVER" -u $ACR_USERNAME --password-stdin
+                    echo "$ACR_PASSWORD" | docker login $ACR_LOGIN_SERVER -u $ACR_USERNAME --password-stdin
 
                     # Update docker-compose.yml with new image tag
                     cd /home/sample-dotnet-8
