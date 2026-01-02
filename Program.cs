@@ -38,9 +38,10 @@ app.MapGet("/weatherforecast", () =>
 app.MapGet("/health", () => new { status = "healthy", timestamp = DateTime.UtcNow, version = "1.0.1" })
 .WithName("HealthCheck")
 .WithOpenApi();
-
+    asd
+as
+    
 app.Run();
-
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
