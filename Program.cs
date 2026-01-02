@@ -34,6 +34,11 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
+// Health check endpoint - added to test CI/CD pipeline
+app.MapGet("/health", () => new { status = "healthy", timestamp = DateTime.UtcNow, version = "1.0.1" })
+.WithName("HealthCheck")
+.WithOpenApi();
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

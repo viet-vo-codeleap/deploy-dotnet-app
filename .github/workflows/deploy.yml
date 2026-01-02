@@ -60,12 +60,12 @@ jobs:
                     echo "$ACR_PASSWORD" | docker login $ACR_LOGIN_SERVER -u $ACR_USERNAME --password-stdin
 
                     # Update docker-compose.yml with new image tag
-                    cd /home/sample-dotnet-8
+                    cd /home/vietvo/sample-dotnet-8
                     yq -i ".services.dotnet-app.image = \"$ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG\"" docker-compose.yml
                     
                     # Pull and restart
-                    docker-compose pull
-                    docker-compose down
-                    docker-compose up -d
+                    docker compose pull
+                    docker compose down
+                    docker compose up -d
 
                     echo "Deployed $IMAGE_NAME:$IMAGE_TAG"
